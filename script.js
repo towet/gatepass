@@ -1,5 +1,5 @@
 // API Configuration
-const API_URL = '/.netlify/functions';
+const API_URL = '/api';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('gatePassForm');

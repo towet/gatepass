@@ -4,20 +4,15 @@ A modern, responsive Single Page Application (SPA) for managing digital gate pas
 
 ## Deployment Instructions
 
-1. **Create a MongoDB Database**
-   - Sign up for a free MongoDB Atlas account
-   - Create a new cluster
-   - Get your connection string
-
-2. **Deploy to Netlify**
+1. **Deploy to Netlify**
+   - Fork or clone this repository
    - Connect your GitHub repository to Netlify
-   - Add the following environment variable in Netlify settings:
-     - Key: `MONGODB_URI`
-     - Value: Your MongoDB connection string
+   - Choose "Deploy with Node.js" option
+   - No environment variables needed
 
-3. **Verify Deployment**
+2. **Verify Deployment**
    - Netlify will automatically build and deploy your site
-   - Check the Functions tab in Netlify to ensure the serverless function is deployed
+   - The Node.js server will start automatically
    - Test the application by creating a new gate pass
 
 ## Local Development
@@ -27,27 +22,21 @@ A modern, responsive Single Page Application (SPA) for managing digital gate pas
    npm install
    ```
 
-2. **Set Environment Variables**
-   Create a `.env` file with:
-   ```
-   MONGODB_URI=your_mongodb_connection_string
-   ```
-
-3. **Run Netlify Dev Server**
+2. **Start the Server**
    ```bash
-   netlify dev
+   npm start
    ```
+   This will start the server at http://localhost:3000
 
 ## Features
 - Create gate passes for adults and children
 - Automatic ID validation for adults
 - Real-time form validation
-- Persistent data storage in MongoDB
+- Persistent data storage in JSON file
 - Responsive design for all devices
 - Modern UI with animations
 
 ## System Requirements
 - Node.js and npm
 - Modern web browser
-- MongoDB Atlas account (for database)
 - Netlify account (for hosting)
