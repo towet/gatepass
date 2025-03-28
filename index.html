@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Pass Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Digital Gate Pass System</h1>
+            <p>Generate and manage visitor passes efficiently</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://ideogram.ai/assets/image/lossless/response/X_voNuO0SfSK0dvdrbjHoA" alt="Gate Pass System">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Generate Gate Pass</h2>
+            <form id="gatePassForm">
+                <div class="form-group">
+                    <label for="visitorType"><i class="fas fa-user-tag"></i> Visitor Type</label>
+                    <select id="visitorType" required>
+                        <option value="">Select Type</option>
+                        <option value="adult">Adult</option>
+                        <option value="child">Child</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Enter full name">
+                </div>
+
+                <div class="form-group" id="idNumberGroup">
+                    <label for="idNumber"><i class="fas fa-id-card"></i> National ID Number</label>
+                    <input type="text" id="idNumber" maxlength="8" pattern="\d{8}" placeholder="Enter 8-digit ID number">
+                    <span class="error-message" id="idError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="purpose"><i class="fas fa-clipboard"></i> Purpose of Visit</label>
+                    <input type="text" id="purpose" required placeholder="Enter purpose of visit">
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-key"></i> Generate Gate Pass
+                </button>
+            </form>
+        </div>
+
+        <div class="passes-container">
+            <h2>Recent Gate Passes</h2>
+            <div id="passesList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
