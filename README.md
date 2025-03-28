@@ -2,45 +2,52 @@
 
 A modern, responsive Single Page Application (SPA) for managing digital gate passes.
 
-## Setup Instructions
+## Deployment Instructions
 
-1. **Install json-server globally**
+1. **Create a MongoDB Database**
+   - Sign up for a free MongoDB Atlas account
+   - Create a new cluster
+   - Get your connection string
+
+2. **Deploy to Netlify**
+   - Connect your GitHub repository to Netlify
+   - Add the following environment variable in Netlify settings:
+     - Key: `MONGODB_URI`
+     - Value: Your MongoDB connection string
+
+3. **Verify Deployment**
+   - Netlify will automatically build and deploy your site
+   - Check the Functions tab in Netlify to ensure the serverless function is deployed
+   - Test the application by creating a new gate pass
+
+## Local Development
+
+1. **Install Dependencies**
    ```bash
-   npm install -g json-server
+   npm install
    ```
 
-2. **Start the Backend Server**
-   - Open a terminal in VS Code
-   - Run the following command:
-   ```bash
-   json-server --watch db.json
+2. **Set Environment Variables**
+   Create a `.env` file with:
    ```
-   - The backend will start at http://localhost:3000
+   MONGODB_URI=your_mongodb_connection_string
+   ```
 
-3. **Start the Frontend**
-   - Install "Live Server" extension in VS Code
-   - Right-click on `index.html`
-   - Select "Open with Live Server"
-   - The app will open in your default browser
-
-## Important Notes
-- Keep both servers running:
-  - json-server (Backend, port 3000)
-  - Live Server (Frontend, usually port 5500)
-- Internet connection required for icons
-- Use modern browsers (Chrome, Firefox, Edge)
-- Make sure ports 3000 and 5500 are available
+3. **Run Netlify Dev Server**
+   ```bash
+   netlify dev
+   ```
 
 ## Features
 - Create gate passes for adults and children
 - Automatic ID validation for adults
 - Real-time form validation
-- Persistent data storage
+- Persistent data storage in MongoDB
 - Responsive design for all devices
 - Modern UI with animations
 
 ## System Requirements
 - Node.js and npm
 - Modern web browser
-- VS Code with Live Server extension
-- Available ports: 3000 and 5500
+- MongoDB Atlas account (for database)
+- Netlify account (for hosting)

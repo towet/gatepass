@@ -1,0 +1,8 @@
+{
+  "name": "gatepass",
+  "version": "1.0.0",
+  "description": "Gate Pass Management System",
+  "dependencies": {
+    "mongodb": "^5.0.0"
+  }
+}

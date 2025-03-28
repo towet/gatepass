@@ -1,3 +1,6 @@
+// API Configuration
+const API_URL = '/.netlify/functions';
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('gatePassForm');
     const visitorType = document.getElementById('visitorType');
@@ -45,18 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch passes from the server
     async function fetchPasses() {
         try {
-            const response = await fetch('http://localhost:3000/passes');
+            const response = await fetch(`${API_URL}/passes`);
+            if (!response.ok) throw new Error('Failed to fetch passes');
             const passes = await response.json();
             displayPasses(passes);
         } catch (error) {
             console.error('Error fetching passes:', error);
+            showError('Unable to load passes. Please try again later.');
         }
     }
 
     // Function to save pass to the server
     async function savePassToServer(gatePass) {
         try {
-            const response = await fetch('http://localhost:3000/passes', {
+            const response = await fetch(`${API_URL}/passes`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,6 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error saving pass:', error);
             throw error;
         }
+    }
+
+    // Function to show error message
+    function showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        form.insertBefore(errorDiv, form.firstChild);
+        setTimeout(() => errorDiv.remove(), 5000);
     }
 
     // Event Listener 3: Form submission with loading animation
